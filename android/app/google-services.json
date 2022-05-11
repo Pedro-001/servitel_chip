@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1035286494104",
+    "project_id": "recarga-chip-flutter",
+    "storage_bucket": "recarga-chip-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035286494104:android:9476b47c5af079347fc9ed",
+        "android_client_info": {
+          "package_name": "com.servitel.chip.servitel_chip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035286494104-tsqjdlsqs5b88mipqu7q3aue84d844b4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS8CkVBI7PmSytrmxaO4yK9mPxkVLc_tI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1035286494104-tsqjdlsqs5b88mipqu7q3aue84d844b4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
