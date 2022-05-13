@@ -29,9 +29,9 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     signingConfigs {
         release {
-            storeFile file('../certificate/sign.jks')
+            storeFile file('../certificate/sign-keystore.jks')
             storePassword 'servitel1992'
-            keyAlias 'servitel'
+            keyAlias 'upload'
             keyPassword 'servitel1992'
         }
     }
@@ -47,7 +47,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.servitel.chip.servitel_chip"
+        applicationId "com.servitel.chip.ditecchips"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
