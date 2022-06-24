@@ -3,7 +3,8 @@ import 'package:servitel_chip/src/model/response.dart';
 import 'package:servitel_chip/src/repositories/login_repository.dart';
 
 class LoginDataSource implements LoginRepository {
-  final BASE_URL = "https://express.servitelconnect.com/ditec/OperacionesApp";
+  final BASE_URL =
+      "https://express.servitelconnect.com/recargachipGDL/OperacionesApp";
   final IOClient _client;
 
   const LoginDataSource(this._client);

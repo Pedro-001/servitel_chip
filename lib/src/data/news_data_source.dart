@@ -3,7 +3,8 @@ import 'package:servitel_chip/src/model/news_response.dart';
 import 'package:servitel_chip/src/repositories/news_repository.dart';
 
 class NewsDataSource implements NewsRepository {
-  final BASE_URL = "https://express.servitelconnect.com/ditec/OperacionesApp";
+  final BASE_URL =
+      "https://express.servitelconnect.com/recargachipGDL/OperacionesApp";
   final IOClient _client;
 
   const NewsDataSource(this._client);

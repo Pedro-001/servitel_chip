@@ -5,7 +5,8 @@ import 'package:servitel_chip/src/model/recharge_response.dart';
 import 'package:servitel_chip/src/model/record_response.dart';
 
 class PhoneRechargesDataSource {
-  final BASE_URL = "https://express.servitelconnect.com/ditec/OperacionesApp";
+  final BASE_URL =
+      "https://express.servitelconnect.com/recargachipGDL/OperacionesApp";
   final IOClient _client;
 
   const PhoneRechargesDataSource(this._client);

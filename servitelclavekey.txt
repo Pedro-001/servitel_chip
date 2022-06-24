@@ -1,0 +1,2 @@
+contraseña: servitel
+Es correcto CN=servitel, OU=servitel, O=servitel, L=Unknown, ST=Unknown, C=Unknown?

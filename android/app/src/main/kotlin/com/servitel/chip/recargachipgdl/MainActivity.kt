@@ -1,4 +1,4 @@
-package com.servitel.chip.ditecchips
+package com.servitel.chip.recargachipgdl
 
 import io.flutter.embedding.android.FlutterActivity
 
