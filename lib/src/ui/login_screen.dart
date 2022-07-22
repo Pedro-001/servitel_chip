@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:servitel_chip/src/bloc/login_bloc.dart';
@@ -12,7 +11,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final LoginBloc loginBloc = Provider.of<LoginBloc>(context);
 
     return Scaffold(
@@ -20,44 +18,39 @@ class LoginScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: CustomAssets.background_mountain,
-              fit: BoxFit.fill
-            )
-        ),
+                image: CustomAssets.background_mountain, fit: BoxFit.fill)),
         child: SafeArea(
-          child: ListView(
-            children: [
-              Container(
-                height: 300,
-                decoration: BoxDecoration(
+            child: ListView(
+          children: [
+            Container(
+              height: 300,
+              decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: CustomAssets.login,
-                    fit: BoxFit.cover
-                  )
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Text("RECARGA CHIP",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
+                      image: CustomAssets.login, fit: BoxFit.cover)),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                "DITEC Chips",
+                textAlign: TextAlign.center,
+                style: TextStyle(
                     color: CustomColor.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 20
-                  ),
+                    fontSize: 20),
+              ),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                "Registro de usuario",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  color: CustomColor.white,
                 ),
               ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Text("Registro de usuario",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                    color: CustomColor.white,
-                  ),
-                ),
-              ),
-              StreamBuilder<bool>(
+            ),
+            StreamBuilder<bool>(
                 initialData: true,
                 stream: loginBloc.observerEnablePhone,
                 builder: (context, snapshot) {
@@ -69,64 +62,51 @@ class LoginScreen extends StatelessWidget {
                       validator: loginBloc.validatorPhone,
                       enabled: snapshot.data,
                       controller: loginBloc.textPhone,
-                      style: TextStyle(
-                        color: CustomColor.white
-                      ),
+                      style: TextStyle(color: CustomColor.white),
                       cursorColor: CustomColor.white,
                       maxLength: 10,
                       maxLines: 1,
                       decoration: InputDecoration(
-                        hintText: "*Ingrese número de celular (10 dígitos)",
-                        hintStyle: TextStyle(
-                          color: CustomColor.gray
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: CustomColor.white
-                          )
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          hintText: "*Ingrese número de celular (10 dígitos)",
+                          hintStyle: TextStyle(color: CustomColor.gray),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: CustomColor.white)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: CustomColor.white, width: 2)),
+                          counterText: '',
+                          helperStyle: TextStyle(
                             color: CustomColor.white,
-                            width: 2
-                          )
-                        ),
-                        counterText: '',
-                        helperStyle: TextStyle(
-                          color: CustomColor.white,
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          ),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(
                             color: CustomColor.white,
-                          )
-                        )
-                      ),
+                          ))),
                     ),
                   );
-                }
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Text("*Solo para usuarios autorizados",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: CustomColor.white,
-                  ),
+                }),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                "*Solo para usuarios autorizados",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: CustomColor.white,
                 ),
               ),
-              StreamBuilder<StatusLoader>(
+            ),
+            StreamBuilder<StatusLoader>(
                 stream: loginBloc.observerLoader,
                 initialData: StatusLoader(status: STATUS.READY, data: null),
-                builder: (context, snapshot){
-
+                builder: (context, snapshot) {
                   StatusLoader statusLoader = snapshot.data;
 
-                  if (statusLoader.status == STATUS.LOADING){
+                  if (statusLoader.status == STATUS.LOADING) {
                     return ProgressWidget(
                       width: 100,
                       height: 100,
                     );
-                  }else if (statusLoader.data == null || !statusLoader.data){
+                  } else if (statusLoader.data == null || !statusLoader.data) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: Column(
@@ -134,48 +114,46 @@ class LoginScreen extends StatelessWidget {
                         children: [
                           SizedBox(height: 80),
                           StreamBuilder<bool>(
-                            initialData: false,
-                            stream: loginBloc.observerEnableButtonContinue,
-                            builder: (context, snapshot) {
-                              return ConstrainedBox(
-                                constraints: BoxConstraints.tightFor(
-                                    height: 50
-                                ),
-                                child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      elevation: MaterialStateProperty.all(0),
-                                      backgroundColor: MaterialStateProperty
-                                          .resolveWith<Color>((states) {
-                                            if (!snapshot.data){
-                                              return CustomColor.gray;
-                                            }else{
-                                              if (states.contains(MaterialState.pressed)){
-                                                return CustomColor.blue_touch;
-                                              }else{
-                                                return CustomColor.blue;
-                                              }
+                              initialData: false,
+                              stream: loginBloc.observerEnableButtonContinue,
+                              builder: (context, snapshot) {
+                                return ConstrainedBox(
+                                  constraints:
+                                      BoxConstraints.tightFor(height: 50),
+                                  child: ElevatedButton(
+                                    style: ButtonStyle(
+                                        elevation: MaterialStateProperty.all(0),
+                                        backgroundColor: MaterialStateProperty
+                                            .resolveWith<Color>((states) {
+                                          if (!snapshot.data) {
+                                            return CustomColor.gray;
+                                          } else {
+                                            if (states.contains(
+                                                MaterialState.pressed)) {
+                                              return CustomColor.blue_touch;
+                                            } else {
+                                              return CustomColor.blue;
                                             }
-                                      })
+                                          }
+                                        })),
+                                    child: Text('CONTINUAR'),
+                                    onPressed: () => snapshot.data
+                                        ? loginBloc.loginFaseUno()
+                                        : null,
                                   ),
-                                  child: Text(
-                                      'CONTINUAR'
-                                  ),
-                                  onPressed: () => snapshot.data ? loginBloc.loginFaseUno() : null,
-                                ),
-                              );
-                            }
-                          ),
-                          Text("Recibirá por SMS un código de verificación",
+                                );
+                              }),
+                          Text(
+                            "Recibirá por SMS un código de verificación",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: CustomColor.white,
-                                fontWeight: FontWeight.bold
-                            ),
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     );
-                  }else{
+                  } else {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: Column(
@@ -184,60 +162,46 @@ class LoginScreen extends StatelessWidget {
                           TextField(
                             keyboardType: TextInputType.number,
                             controller: loginBloc.textCode,
-                            style: TextStyle(
-                                color: CustomColor.white
-                            ),
+                            style: TextStyle(color: CustomColor.white),
                             cursorColor: CustomColor.white,
                             maxLength: 10,
                             maxLines: 1,
                             decoration: InputDecoration(
                                 hintText: "*Ingrese el código de verificación",
-                                hintStyle: TextStyle(
-                                    color: CustomColor.gray
-                                ),
+                                hintStyle: TextStyle(color: CustomColor.gray),
                                 enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: CustomColor.white
-                                    )
-                                ),
+                                    borderSide:
+                                        BorderSide(color: CustomColor.white)),
                                 focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                        color: CustomColor.white,
-                                        width: 2
-                                    )
-                                ),
+                                        color: CustomColor.white, width: 2)),
                                 counterText: '',
                                 helperStyle: TextStyle(
                                   color: CustomColor.white,
                                 ),
                                 border: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: CustomColor.white,
-                                    )
-                                )
-                            ),
+                                  color: CustomColor.white,
+                                ))),
                           ),
                           SizedBox(height: 20),
                           ConstrainedBox(
-                            constraints: BoxConstraints.tightFor(
-                                height: 50
-                            ),
+                            constraints: BoxConstraints.tightFor(height: 50),
                             child: ElevatedButton(
                               style: ButtonStyle(
                                   elevation: MaterialStateProperty.all(0),
-                                  backgroundColor: MaterialStateProperty
-                                      .resolveWith<Color>((states) {
-                                    if (states.contains(MaterialState.pressed)){
+                                  backgroundColor:
+                                      MaterialStateProperty.resolveWith<Color>(
+                                          (states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
                                       return CustomColor.blue_touch;
-                                    }else{
+                                    } else {
                                       return CustomColor.blue;
                                     }
-                                  })
-                              ),
-                              child: Text(
-                                  'ACEPTAR'
-                              ),
-                              onPressed: (){
+                                  })),
+                              child: Text('ACEPTAR'),
+                              onPressed: () {
                                 loginBloc.loginFaseDos();
                               },
                             ),
@@ -246,11 +210,9 @@ class LoginScreen extends StatelessWidget {
                       ),
                     );
                   }
-                }
-              )
-            ],
-          )
-        ),
+                })
+          ],
+        )),
       ),
     );
   }
