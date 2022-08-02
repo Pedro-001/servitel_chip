@@ -209,16 +209,16 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
               ),*/
-                  Container(
-                    margin: EdgeInsets.only(top: 20),
-                    height: 100,
-                    /*decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: CustomAssets.header,
-                            fit: BoxFit.fitWidth
-                        )
-                    )*/
-                  ),
+//                  Container(
+//                    margin: EdgeInsets.only(top: 20),
+//                    height: 100,
+//                    /*decoration: BoxDecoration(
+//                        image: DecorationImage(
+//                            image: CustomAssets.header,
+//                            fit: BoxFit.fitWidth
+//                        )
+//                    )*/
+//                  ),
                 ],
               );
             } else {
